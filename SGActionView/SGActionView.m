@@ -25,14 +25,18 @@
 
 @implementation SGActionView
 
+static SGActionView *actionView = nil;
+    
 + (SGActionView *)sharedActionView
 {
-    static SGActionView *actionView = nil;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+//     static SGActionView *actionView = nil;
+//     static dispatch_once_t onceToken;
+//     dispatch_once(&onceToken, ^{
+     if (actionView == nil) {
         CGRect rect = [[UIScreen mainScreen] bounds];
         actionView = [[SGActionView alloc] initWithFrame:rect];
-    });
+     }
+//     });
     
     return actionView;
 }
@@ -125,6 +129,8 @@
             [self.layer addAnimation:self.lightingAnimation forKey:@"lighting"];
             [menu.layer addAnimation:self.dismissMenuAnimation forKey:@"dismissMenu"];
             [CATransaction commit];
+            
+            actionView = nil;
         }else{
             [menu removeFromSuperview];
 
@@ -133,6 +139,8 @@
             [self addSubview:topMenu];
             [topMenu layoutIfNeeded];
             topMenu.frame = (CGRect){CGPointMake(0, self.bounds.size.height - topMenu.bounds.size.height), topMenu.bounds.size};
+            
+            actionView = nil;
         }
     }
 }
