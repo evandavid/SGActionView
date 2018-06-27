@@ -50,12 +50,26 @@ static SGActionView *actionView = nil;
         _tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction:)];
         _tapGesture.delegate = self;
         [self addGestureRecognizer:_tapGesture];
+
+            //To add the notification
+        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+        [[NSNotificationCenter defaultCenter]
+         addObserver:self selector:@selector(orientationChanged:)
+         name:UIDeviceOrientationDidChangeNotification
+         object:[UIDevice currentDevice]];
     }
     return self;
 }
 
 - (void)dealloc{
     [self removeGestureRecognizer:_tapGesture];
+}
+
+- (void) orientationChanged:(NSNotification *)note {
+    SGBaseMenu *menu = self.menus.lastObject;
+
+    [[SGActionView sharedActionView] dismissMenu:menu Animated:YES];
+    [self.menus removeObject:menu];
 }
 
 - (void)tapAction:(UITapGestureRecognizer *)tapGesture{
