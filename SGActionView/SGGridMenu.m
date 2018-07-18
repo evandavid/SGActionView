@@ -87,15 +87,15 @@
         _contentScrollView.backgroundColor = [UIColor clearColor];
         [self addSubview:_contentScrollView];
         
-        _cancelButton = [SGButton buttonWithType:UIButtonTypeCustom];
-        _cancelButton.clipsToBounds = YES;
-        _cancelButton.titleLabel.font = [UIFont systemFontOfSize:17];
-        [_cancelButton setTitleColor:BaseMenuTextColor(self.style) forState:UIControlStateNormal];
-        [_cancelButton addTarget:self
-                          action:@selector(tapAction:)
-                forControlEvents:UIControlEventTouchUpInside];
-        [_cancelButton setTitle:@"取    消" forState:UIControlStateNormal];
-        [self addSubview:_cancelButton];
+//         _cancelButton = [SGButton buttonWithType:UIButtonTypeCustom];
+//         _cancelButton.clipsToBounds = YES;
+//         _cancelButton.titleLabel.font = [UIFont systemFontOfSize:17];
+//         [_cancelButton setTitleColor:BaseMenuTextColor(self.style) forState:UIControlStateNormal];
+//         [_cancelButton addTarget:self
+//                           action:@selector(tapAction:)
+//                 forControlEvents:UIControlEventTouchUpInside];
+//         [_cancelButton setTitle:@"取    消" forState:UIControlStateNormal];
+//         [self addSubview:_cancelButton];
     }
     return self;
 }
