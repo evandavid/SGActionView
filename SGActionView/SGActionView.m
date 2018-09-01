@@ -65,11 +65,27 @@ static SGActionView *actionView = nil;
     [self removeGestureRecognizer:_tapGesture];
 }
 
+
 - (void) orientationChanged:(NSNotification *)note {
     SGBaseMenu *menu = self.menus.lastObject;
 
-    [[SGActionView sharedActionView] dismissMenu:menu Animated:YES];
-    [self.menus removeObject:menu];
+    UIDevice * device = note.object;
+    switch(device.orientation)
+    {
+        case UIDeviceOrientationPortrait:
+        case UIDeviceOrientationPortraitUpsideDown:
+        case UIDeviceOrientationLandscapeLeft:
+        case UIDeviceOrientationLandscapeRight:
+
+            /* start special animation */
+            
+            [[SGActionView sharedActionView] dismissMenu:menu Animated:YES];
+            [self.menus removeObject:menu];
+            break;
+            
+        default:
+            break;
+    };
 }
 
 - (void)tapAction:(UITapGestureRecognizer *)tapGesture{
