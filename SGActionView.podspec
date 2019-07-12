@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "Combination alert view, table, and share view."
   s.description  = "Combination alert view, table, and share view. 3 in one."
   s.homepage     = "https://github.com/sagiwei/SGActionView"
-  s.license      = { :type => "MIT", :file => "README.markdown" }
+  s.license      = { :type => "MIT", :file => "README.md" }
   s.author       = { "sagiwei" => "sagiwei@gmail.com" }
 
   s.source       = { :git => "https://github.com/sagiwei/SGActionView.git", :commit => "7dbe145923b7481bddc6e3487742e6e35e4c5e64" }
