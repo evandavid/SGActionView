@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/evandavid/SGActionView.git"}
   s.source_files  = "SGActionView/*.{h,m}"
 
-  s.platform = :ios, '9.0'
+  s.platform = :ios, '6.0'
   s.framework = 'UIKit', 'CoreGraphics'
   s.requires_arc = true
 end
